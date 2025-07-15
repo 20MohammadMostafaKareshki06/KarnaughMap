@@ -11,7 +11,7 @@
  + ترکیب رشته‌های باینری مشابه (با تفاوت در یک بیت) و تولید رشته‌هایی با -.
  + تکرار ترکیب تا جایی که دیگر نتوان رشته‌ها را ساده‌تر کرد.
 ## توابع به کار رفته:
----c++
+--- C++
 
     vector<string> quine_mccluskey(vector<string>& minterms_bin) {
     map<int, vector<string>> groups;
@@ -68,7 +68,7 @@
  + ساخت یک جدول پوشش‌دهی.
  + بررسی اینکه هر ‌میتترم توسط چند ایمپلیکنت پوشش داده شده است.
  + اگر فقط یکی از ایمپلیکنت‌ها آن مینترم را پوشش دهد، آن ایمپلیکنت ضروری (Essential) است.
----c++
+--- C++
    
        set<string> find_essential(const vector<string>& primes, const vector<string>& terms) {
        map<string, vector<string>> table;
