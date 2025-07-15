@@ -134,15 +134,66 @@
 ### کاربرد:
  + تبدیل یک عدد دهدهی به یک رشته ی باینری با تعداد بیت مشخص
 
+--- C++
+
+        string to_binary(int num, int bits) {
+           return bitset<6>(num).to_string().substr(6 - bits);
+           }
+---
+
+
+
 ## 2. count_ones
 ### کاربرد:
  + شمارش تعداد بیت های 1 در رشته باینری
+
+--- C++
+
+    int count_ones(const string& s) {
+       return count(s.begin(), s.end(), '1');
+    }
+---
 ## 3. one_bit_diff
 ### کاربرد:
  + بررسی اینکه دو رشته باینری فقط در یک بیت با هم تفاوت دارند
+
+--- C++
+
+    bool one_bit_diff(const string& a, const string& b, string& res) {
+      int diff = 0;
+      res = a;
+      for (int i = 0; i < a.size(); i++) {
+         if (a[i] != b[i]) {
+             diff++;
+             res[i] = '-';
+         }
+         if (diff > 1) return false;
+      }
+      return diff == 1;
+      }
+---
 ## 4. covers
 ### کاربرد:
  + بررسی اینکه آیا یک ایمپلیکنت خاص می‌تواند یک مین‌ترم را پوشش دهد یا نه
+--- C++
+
+       bool covers(const string& implicant, const string& m) {
+        for (int i = 0; i < m.size(); i++)
+            if (implicant[i] != '-' && implicant[i] != m[i])
+                return false;
+          return true;
+       }
+---
 ## 5. bin_to_expr
 ### کاربرد:
  + تبدیل رشته باینری با عبارت بولی با متغیرهایی مانند AB و غیره
+--- C++
+
+        string bin_to_expr(const string& s) {
+        string expr = "";
+        for (int i = 0; i < s.size(); i++) {
+        if (s[i] == '1') expr += var_names[i];
+        else if (s[i] == '0') expr += var_names[i] + string("'");
+        }
+        return expr.empty() ? "1" : expr;
+---
